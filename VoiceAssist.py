@@ -1,7 +1,8 @@
 import speech_recognition
 import webbrowser
 
-webbrowser.register('chrome', None,webbrowser.BackgroundBrowser(ТУТ СВОЙ ПУТЬ ДО ХРОМА УКАЖИ))
+webbrowser.register('chrome', None,webbrowser.BackgroundBrowser("C:/Program Files/Google/Chrome/Application/chrome.exe"))
+
 sr = speech_recognition.Recognizer()
 sr.pause_threshold=0.5 # создаем паузу, после которой ассистент примет нашу команду
 
@@ -28,7 +29,7 @@ def main():
         if query in v:
             print(globals()[k]())
 
-def search_for_information_on_google():
+def search_on_google():
     print('что надо найти?')
     try:
         with speech_recognition.Microphone() as mic:
@@ -36,14 +37,16 @@ def search_for_information_on_google():
             audio = sr.listen(source=mic)
             search_term = sr.recognize_google(audio_data=audio, language='ru-RU').lower()
 
-    except speech_recognition.UnknownValueError:
-        return 'Я не понял что ты сказал'
 
+    except speech_recognition.UnknownValueError as e:
+        return 'Я не понял что вы сказали'
 
     url = f"https://www.google.com/search?q={search_term}"
     webbrowser.get('chrome').open_new_tab(url)
 
     return 'Открываю'
 
+
 if __name__=='__main__':
     main()
+    search_on_google()
