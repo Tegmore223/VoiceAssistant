@@ -30,15 +30,7 @@ def listen_comand():
         return 'Я не понял что вы сказали'
 def search_on_google():
     print('что надо найти?')
-    try:
-        with speech_recognition.Microphone() as mic:
-            sr.adjust_for_ambient_noise(source=mic, duration=0.5)
-            audio = sr.listen(source=mic)
-            search_term = sr.recognize_google(audio_data=audio, language='ru-RU').lower()
-
-
-    except speech_recognition.UnknownValueError as e:
-        return 'Я не понял что вы сказали'
+    search_term = listen_comand()
 
     url = f"https://www.google.com/search?q={search_term}"
     webbrowser.get('chrome').open_new_tab(url)
@@ -47,15 +39,7 @@ def search_on_google():
 
 def search_on_wiki():
     print('Что именно вы хотите найти в Википедии? ')
-    try:
-        with speech_recognition.Microphone() as mic:
-            sr.adjust_for_ambient_noise(source=mic, duration=0.5)
-            audio = sr.listen(source=mic)
-            search_term = sr.recognize_google(audio_data=audio, language='ru-RU').lower()
-
-
-    except speech_recognition.UnknownValueError as e:
-        return 'Я не понял что вы сказали'
+    search_term = listen_comand()
 
     url = f"https://ru.wikipedia.org/wiki/{search_term}"
     webbrowser.get('chrome').open_new_tab(url)
