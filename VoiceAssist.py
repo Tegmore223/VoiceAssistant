@@ -49,6 +49,9 @@ def search_on_wiki():
 
 if __name__ == "__main__":
     main()
-    search_on_wiki()
-    search_on_google()
-
+    command = listen_comand()
+    #if command == 'гугл':
+    #    search_on_google()
+    #elif command == 'вики':
+    #    search_on_wiki()
+    #ТИПО ТАКОГО
