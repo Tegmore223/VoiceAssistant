@@ -1,6 +1,7 @@
 import speech_recognition
 import webbrowser
 
+webbrowser.register('chrome', None,webbrowser.BackgroundBrowser(ТУТ СВОЙ ПУТЬ ДО ХРОМА УКАЖИ))
 sr = speech_recognition.Recognizer()
 sr.pause_threshold=0.5 # создаем паузу, после которой ассистент примет нашу команду
 
@@ -40,7 +41,7 @@ def search_for_information_on_google():
 
 
     url = f"https://www.google.com/search?q={search_term}"
-    webbrowser.open(url)
+    webbrowser.get('chrome').open_new_tab(url)
 
     return 'Открываю'
 
