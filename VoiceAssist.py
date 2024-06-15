@@ -9,7 +9,7 @@ sr.pause_threshold=0.5 # создаем паузу, после которой а
 
 commands_dict = {'commands':{
 'search_for_information_on_google':
-['искать', 'гугл', 'найди' ,'найти', 'поиск в википедии', 'вики', 'википедия']}}
+['искать', 'гугл', 'найди' ,'найти', 'вики', 'википедия']}}
 
 def main():
     query = listen_comand()
@@ -63,11 +63,8 @@ def search_on_wiki():
     return 'Открываю'
 
 
-
-if __name__=='__main__':
-    main()
-
 if __name__ == "__main__":
     main()
     search_on_wiki()
     search_on_google()
+
