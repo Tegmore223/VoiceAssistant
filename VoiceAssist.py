@@ -1,5 +1,5 @@
 import speech_recognition
-
+from commands.py import commands_dict
 sr = speech_recognition.Recognizer()
 sr.pause_threshold=0.5 # создаем паузу, после которой ассистент примет нашу команду
 
