@@ -1,3 +1,6 @@
+#Голосовой Ассистент
+#Список доступных голсовых команд - readme.txt
+
 import speech_recognition
 import webbrowser
 
@@ -19,6 +22,13 @@ def main():
             if wiki in query:
                 search_on_wiki()
 
+        for music in ['включи музыку', 'музыка', 'хочу послушать музыку']:
+            if music in query:
+                Music()
+
+        for GPT in ['открой ChatGPT', 'открой искусственный интеллект', 'мне нужен искусственный интеллект', 'ChatGPT', 'Искусственный интеллект', 'чат gpt']:
+            if GPT in query:
+                ChatGPT()
 
 
 def listen_comand():
@@ -40,8 +50,6 @@ def search_on_google():
     url = f"https://www.google.com/search?q={search_term}"
     webbrowser.get('chrome').open_new_tab(url)
 
-    return 'Открываю'
-
 def search_on_wiki():
     print('Что именно вы хотите найти в Википедии? ')
     search_term = listen_comand()
@@ -50,7 +58,16 @@ def search_on_wiki():
     url = f"https://ru.wikipedia.org/wiki/{search_term}"
     webbrowser.get('chrome').open_new_tab(url)
 
-    return 'Открываю'
+def Music():
+    print('Открываю Yandex Music...')
+    url = f"https://music.yandex.ru/users/alexander.makletsoff/playlists/3"
+    webbrowser.get('chrome').open_new_tab(url)
+
+def ChatGPT():
+    print('Открываю ChatGPT')
+    url = f'https://chatgpt.com/?model=auto'
+    webbrowser.get('chrome').open_new_tab(url)
 
 if __name__ == "__main__":
     main()
+
