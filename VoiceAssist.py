@@ -80,7 +80,7 @@ def ChatGPT():
 
 def Wether():
     print("Октрываю данные о погоде...")
-    url = f'https://yandex.ru/pogoda/kazan?lat=55.796129&lon=49.106414'
+    url = f'ССЫЛКА НА ПОГОДУ'
     webbrowser.get('chrome').open_new_tab(url)
 
 def File_manager():
