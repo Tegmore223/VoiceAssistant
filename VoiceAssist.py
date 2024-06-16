@@ -3,6 +3,7 @@
 
 import speech_recognition
 import webbrowser
+import os
 
 webbrowser.register('chrome', None, webbrowser.BackgroundBrowser("C:/Program Files/Google/Chrome/Application/chrome.exe"))
 
@@ -30,6 +31,14 @@ def main():
             if GPT in query:
                 ChatGPT()
 
+        for weather in ['погода', 'данные о погоде', 'узнать погоду', 'какая погода']:
+            if weather in query:
+                Wether()
+
+        for OpenFManager in ['проводник', 'файлы', 'открыть проводник']:
+            if OpenFManager in query:
+                File_manager()
+
 
 def listen_comand():
     try:
@@ -41,11 +50,12 @@ def listen_comand():
         return query
 
     except speech_recognition.UnknownValueError:
-        return 'Я не понял что вы сказали'
+        print('Я не понял что вы сказали')
 
 def search_on_google():
     print('что надо найти?')
     search_term = listen_comand()
+    print('Открываю Google...')
 
     url = f"https://www.google.com/search?q={search_term}"
     webbrowser.get('chrome').open_new_tab(url)
@@ -53,20 +63,29 @@ def search_on_google():
 def search_on_wiki():
     print('Что именно вы хотите найти в Википедии? ')
     search_term = listen_comand()
-    print(search_term)
+    print('Открываю Википедию...')
 
     url = f"https://ru.wikipedia.org/wiki/{search_term}"
     webbrowser.get('chrome').open_new_tab(url)
 
 def Music():
     print('Открываю Yandex Music...')
-    url = f"https://music.yandex.ru/users/alexander.makletsoff/playlists/3"
+    url = f"https://music.yandex.ru/users/yamusic-daily/playlists/156956347"
     webbrowser.get('chrome').open_new_tab(url)
 
 def ChatGPT():
-    print('Открываю ChatGPT')
+    print('Открываю ChatGPT...')
     url = f'https://chatgpt.com/?model=auto'
     webbrowser.get('chrome').open_new_tab(url)
+
+def Wether():
+    print("Октрываю данные о погоде...")
+    url = f'https://yandex.ru/pogoda/kazan?lat=55.796129&lon=49.106414'
+    webbrowser.get('chrome').open_new_tab(url)
+
+def File_manager():
+    print('Открываю проводник...')
+    os.system("explorer")
 
 if __name__ == "__main__":
     main()
