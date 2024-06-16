@@ -1,5 +1,5 @@
 #Голосовой Ассистент
-#Список доступных голсовых команд - readme.txt
+#Список доступных голсовых команд - readme.md
 
 import speech_recognition
 import webbrowser
