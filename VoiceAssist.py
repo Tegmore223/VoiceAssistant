@@ -6,7 +6,7 @@ webbrowser.register('chrome', None, webbrowser.BackgroundBrowser("C:/Program Fil
 
 sr = speech_recognition.Recognizer()
 sr.pause_threshold = 0.5  # создаем паузу, после которой ассистент примет нашу команду
-sr.energy_threshold = 2000  # устанавливаем более высокий порог энергии
+sr.energy_threshold = 1500  # устанавливаем более высокий порог энергии
 
 def main():
     start_listening()
