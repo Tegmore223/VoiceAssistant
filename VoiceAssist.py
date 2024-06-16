@@ -9,32 +9,29 @@ sr.pause_threshold = 0.5  # создаем паузу, после которой
 sr.energy_threshold = 2000  # устанавливаем более высокий порог энергии
 
 def main():
-    while True:
-        query = listen_comand()
+    start_listening()
 
-        for google in ['искать', 'гугл', 'найди', 'найти']:
-            if google in query:
-                search_on_google()
+def start_listening():
+    query = listen_comand()
 
-        for wiki in ['вики', 'википедия']:
-            if wiki in query:
-                search_on_wiki()
+    if query in ['искать', 'гугл', 'найди', 'найти']:
+        search_on_google()
 
-        for music in ['включи музыку', 'музыка', 'хочу послушать музыку']:
-            if music in query:
-                Music()
+    elif query in ['вики', 'википедия']:
+        search_on_wiki()
 
-        for GPT in ['открой ChatGPT', 'открой искусственный интеллект', 'мне нужен искусственный интеллект', 'ChatGPT', 'Искусственный интеллект', 'чат gpt', 'нейросеть']:
-            if GPT in query:
-                ChatGPT()
+    elif query in ['включи музыку', 'музыка', 'хочу послушать музыку']:
+        Music()
 
-        for weather in ['погода', 'данные о погоде', 'узнать погоду', 'какая погода']:
-            if weather in query:
-                Weather()
+    elif query in ['открой ChatGPT', 'открой искусственный интеллект', 'мне нужен искусственный интеллект', 'ChatGPT',
+                'Искусственный интеллект', 'чат gpt', 'нейросеть']:
+        ChatGPT()
 
-        for OpenFManager in ['проводник', 'файлы', 'открыть проводник']:
-            if OpenFManager in query:
-                File_manager()
+    elif query in ['погода', 'данные о погоде', 'узнать погоду', 'какая погода']:
+        Weather()
+
+    elif query in ['проводник', 'файлы', 'открыть проводник']:
+        File_manager()
 
 def listen_comand():
     try:
@@ -47,6 +44,7 @@ def listen_comand():
 
     except speech_recognition.UnknownValueError:
         print('Я не понял что вы сказали')
+        start_listening()
 
 def search_on_google():
     print('что надо найти?')
@@ -55,6 +53,7 @@ def search_on_google():
 
     url = f"https://www.google.com/search?q={search_term}"
     webbrowser.get('chrome').open_new_tab(url)
+    start_listening()
 
 def search_on_wiki():
     print('Что именно вы хотите найти в Википедии? ')
@@ -63,25 +62,31 @@ def search_on_wiki():
 
     url = f"https://ru.wikipedia.org/wiki/{search_term}"
     webbrowser.get('chrome').open_new_tab(url)
+    start_listening()
 
 def Music():
     print('Открываю Yandex Music...')
     url = f"https://music.yandex.ru/users/yamusic-daily/playlists/156956347"
     webbrowser.get('chrome').open_new_tab(url)
+    start_listening()
 
 def ChatGPT():
     print('Открываю ChatGPT...')
     url = f'https://chatgpt.com/?model=auto'
     webbrowser.get('chrome').open_new_tab(url)
+    start_listening()
 
 def Weather():
     print("Открываю данные о погоде...")
-    url = f'https://yandex.ru/pogoda/kazan?lat=55.796129&lon=49.106414'
+    url = f'ССЫЛКА'
     webbrowser.get('chrome').open_new_tab(url)
+    start_listening()
 
 def File_manager():
     print('Открываю проводник...')
     os.system("explorer")
+    start_listening()
 
 if __name__ == "__main__":
     main()
+
