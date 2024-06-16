@@ -1,6 +1,3 @@
-#Голосовой Ассистент
-#Список доступных голсовых команд - readme.md
-
 import speech_recognition
 import webbrowser
 import os
@@ -9,7 +6,7 @@ webbrowser.register('chrome', None, webbrowser.BackgroundBrowser("C:/Program Fil
 
 sr = speech_recognition.Recognizer()
 sr.pause_threshold = 0.5  # создаем паузу, после которой ассистент примет нашу команду
-sr.energy_threshold = 1500  # устанавливаем более высокий порог энергии
+sr.energy_threshold = 2000  # устанавливаем более высокий порог энергии
 
 def main():
     while True:
@@ -27,18 +24,17 @@ def main():
             if music in query:
                 Music()
 
-        for GPT in ['открой ChatGPT', 'открой искусственный интеллект', 'мне нужен искусственный интеллект', 'ChatGPT', 'Искусственный интеллект', 'чат gpt']:
+        for GPT in ['открой ChatGPT', 'открой искусственный интеллект', 'мне нужен искусственный интеллект', 'ChatGPT', 'Искусственный интеллект', 'чат gpt', 'нейросеть']:
             if GPT in query:
                 ChatGPT()
 
         for weather in ['погода', 'данные о погоде', 'узнать погоду', 'какая погода']:
             if weather in query:
-                Wether()
+                Weather()
 
         for OpenFManager in ['проводник', 'файлы', 'открыть проводник']:
             if OpenFManager in query:
                 File_manager()
-
 
 def listen_comand():
     try:
@@ -70,7 +66,7 @@ def search_on_wiki():
 
 def Music():
     print('Открываю Yandex Music...')
-    url = f"ССЫЛКА НА ПЛЕЙЛИСТ"
+    url = f"https://music.yandex.ru/users/yamusic-daily/playlists/156956347"
     webbrowser.get('chrome').open_new_tab(url)
 
 def ChatGPT():
@@ -78,9 +74,9 @@ def ChatGPT():
     url = f'https://chatgpt.com/?model=auto'
     webbrowser.get('chrome').open_new_tab(url)
 
-def Wether():
-    print("Октрываю данные о погоде...")
-    url = f'ССЫЛКА НА ПОГОДУ'
+def Weather():
+    print("Открываю данные о погоде...")
+    url = f'https://yandex.ru/pogoda/kazan?lat=55.796129&lon=49.106414'
     webbrowser.get('chrome').open_new_tab(url)
 
 def File_manager():
@@ -89,4 +85,3 @@ def File_manager():
 
 if __name__ == "__main__":
     main()
-
