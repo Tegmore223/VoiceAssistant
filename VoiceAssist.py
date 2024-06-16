@@ -70,7 +70,7 @@ def search_on_wiki():
 
 def Music():
     print('Открываю Yandex Music...')
-    url = f"https://music.yandex.ru/users/yamusic-daily/playlists/156956347"
+    url = f"ССЫЛКА НА ПЛЕЙЛИСТ"
     webbrowser.get('chrome').open_new_tab(url)
 
 def ChatGPT():
