@@ -78,7 +78,7 @@ def ChatGPT():
 
 def Weather():
     print("Открываю данные о погоде...")
-    url = f'f'https://yandex.ru/pogoda/kazan?lat=55.796129&lon=49.106414''
+    url = f'https://yandex.ru/pogoda/kazan?lat=55.796129&lon=49.106414'
     webbrowser.get('chrome').open_new_tab(url)
     start_listening()
 
