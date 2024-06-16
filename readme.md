@@ -7,4 +7,4 @@
 
 &#128586; Спискок доступных команд пока не опубликован, но если вам не терпится их увидеть, то все они есть в исходном коде. 	
 
-[![Ashutosh's github activity graph](https://github-readme-activity-graph.vercel.app/graph?username=Tegmore223&theme=merko)](https://github.com/Tegmore223/github-readme-activity-graph)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Tegmore223&layout=compact)](https://github.com/Tegmore223/github-readme-stats)
